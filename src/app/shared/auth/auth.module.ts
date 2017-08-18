@@ -4,23 +4,21 @@ import {LoginComponent} from './login/login.component';
 import {AuthService} from './auth.service';
 import {FormsModule} from '@angular/forms';
 import {LogoutComponent} from './logout/logout.component';
-import {HttpModule} from '@angular/http';
-import {HttpService} from './http.service';
 import {AuthRoutingModule} from './auth.routing';
 import {LoggedInGuard} from './logged-in.guard';
+import {MockBackendModule} from '../../mock-backend/mock-backend.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     AuthRoutingModule,
-    HttpModule
+    // HttpModule <- use this in real implementation
+    MockBackendModule // <- provide fake Http service, do not use in production!
   ],
   declarations: [LoginComponent, LogoutComponent],
   providers: [
     AuthService,
-    // This is mock http service in real implementation use HttpService from @angular/http
-    HttpService,
     LoggedInGuard,
     {provide: 'AUTH_TOKEN', useValue: 'token'},
     {provide: 'AUTH_USER', useValue: 'user'}
