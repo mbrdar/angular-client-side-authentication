@@ -1,4 +1,4 @@
-# Angular client side authentication that uses token example
+# Angular client side authentication with token example
 
 # Demo
 
