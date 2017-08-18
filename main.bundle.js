@@ -507,16 +507,14 @@ function mockBackendFactory(backend, options) {
 }
 function checkCredentials(body, connection) {
     if (body.email === 'test@test.com' && body.password === 'password') {
-        connection.mockRespond(new __WEBPACK_IMPORTED_MODULE_0__angular_http__["f" /* Response */](mockResponseOptions()));
+        connection.mockRespond(new __WEBPACK_IMPORTED_MODULE_0__angular_http__["f" /* Response */](generateMockResponseOptions()));
     }
     else {
-        connection.mockRespond(new __WEBPACK_IMPORTED_MODULE_0__angular_http__["f" /* Response */](mockResponseOptions().merge({
-            status: 401
-        })));
+        connection.mockError(new Error('Wrong credentials'));
     }
 }
 // generate fake response options
-function mockResponseOptions() {
+function generateMockResponseOptions() {
     var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]();
     headers.append('Content-Type', 'application/json');
     headers.append('Set-Authorization', 'fakeToken');
