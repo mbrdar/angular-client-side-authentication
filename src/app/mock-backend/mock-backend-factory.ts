@@ -26,16 +26,14 @@ export function mockBackendFactory(backend: MockBackend, options: BaseRequestOpt
 
 function checkCredentials(body: any, connection: MockConnection) {
   if (body.email === 'test@test.com' && body.password === 'password') {
-    connection.mockRespond(new Response(mockResponseOptions()));
+    connection.mockRespond(new Response(generateMockResponseOptions()));
   } else {
-    connection.mockRespond(new Response(mockResponseOptions().merge({
-      status: 401
-    })));
+    connection.mockError(new Error('Wrong credentials'));
   }
 }
 
 // generate fake response options
-function mockResponseOptions(): ResponseOptions {
+function generateMockResponseOptions(): ResponseOptions {
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
   headers.append('Set-Authorization', 'fakeToken');
