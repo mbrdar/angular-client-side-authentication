@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {LogoutComponent} from './logout/logout.component';
 import {AuthRoutingModule} from './auth.routing';
 import {LoggedInGuard} from './logged-in.guard';
-import {MockBackendModule} from '../../mock-backend/mock-backend.module';
+import {MockBackendModule} from '../mock-backend/mock-backend.module';
 
 @NgModule({
   imports: [
