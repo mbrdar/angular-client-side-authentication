@@ -2,7 +2,7 @@
 
 # Demo
 
-https://mbrdar.github.io/angular-client-side-authentication/
+https://angular-jwt-auth.000webhostapp.com/
 
 ## Development server
 
